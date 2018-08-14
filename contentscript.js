@@ -60,7 +60,7 @@ function handlePointerPress(e) {
     if (realLink) {
         a.href = realLink;
     }
-    if (openInNewTab) {
+    if (openInNewTab && window.location.origin !== new URL(a.href).origin) {
         a.target = "_blank";
     }
     a.referrerPolicy = getReferrerPolicy();
